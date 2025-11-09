@@ -12,15 +12,10 @@ function Test-4IoTUsersAllowedTitles {
         $validTitles = $validation.validTitles
 
         # Retrieve all member users from Graph
-        # $Users = @()
-        $Groups = $validation.groupsInScope
-        foreach ($Group in $Groups) {
-            $users += Get-MtGroupMember -GroupId $group.id
-        }
         $Users = @()
         $Groups = $validation.groupsInScope
         foreach ($Group in $Groups) {
-            $users += Get-MtGroupMember -GroupId $group.id
+            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
         }
         $invalidUsers = @()
 

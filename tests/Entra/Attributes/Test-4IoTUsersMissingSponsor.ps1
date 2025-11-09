@@ -1,4 +1,8 @@
 function Test-4IoTUsersMissingSponsor {
+    param(
+        [string] $ValidatingPath = ("$PSScriptRoot/validation.json")
+    )
+    $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json -Depth 10
     $result = $true
 
     try {

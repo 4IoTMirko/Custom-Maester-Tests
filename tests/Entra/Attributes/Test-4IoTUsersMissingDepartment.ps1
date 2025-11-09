@@ -1,11 +1,20 @@
 function Test-4IoTUsersMissingDepartment {
+    param(
+        [string] $ValidatingPath = ("$PSScriptRoot/validation.json")
+    )
+    $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json -Depth 10
     $result = $true
 
     try {
         $Users = @()
+        # Log the ValidatingPath for debugging
+        Write-Output "Using ValidatingPath: $ValidatingPath"
+        
+        # Load valid cities from validation.json
+        $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json
         $Groups = $validation.groupsInScope
         foreach ($Group in $Groups) {
-            $users += Get-MtGroupMember -GroupId $group.id
+            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
         }
         $usersWithoutDepartment = @()
 
