@@ -5,7 +5,7 @@ function Test-4IoTUsersAllowedCompanyNames {
     $result = $true
     try {
         # Log the ValidatingPath for debugging
-        Write-Output "Using ValidatingPath: $ValidatingPath"
+        # Write-Output "Using ValidatingPath: $ValidatingPath"
         
         # Load valid company names from validation.json
         $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json

@@ -4,7 +4,7 @@ function Test-4IoTUsersAllowedLocationsNoBusinessPhones {
     )
     $result = $true
     try {
-        Write-Output "Using ValidatingPath: $ValidatingPath"
+        # Write-Output "Using ValidatingPath: $ValidatingPath"
         # Load valid locations from validation.json
         $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json -Depth 10
         $validLocations = $validation.validLocations

@@ -10,7 +10,7 @@ function Test-4IoTUsersMissingSponsor {
         $usersWithoutSponsor = @()
 
         foreach ($user in $users) {
-            Write-Output $user | Format-List *
+            # Write-Output $user | Format-List *
 
             if ($user.jobTitle -eq "CEO" -or $user.displayName -eq "On-Premises Directory Synchronization Service Account") {
                 continue

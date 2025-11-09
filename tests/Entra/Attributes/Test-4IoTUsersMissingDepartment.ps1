@@ -8,7 +8,7 @@ function Test-4IoTUsersMissingDepartment {
     try {
         $Users = @()
         # Log the ValidatingPath for debugging
-        Write-Output "Using ValidatingPath: $ValidatingPath"
+        # Write-Output "Using ValidatingPath: $ValidatingPath"
         
         # Load valid cities from validation.json
         $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json
