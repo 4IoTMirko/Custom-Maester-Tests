@@ -3,7 +3,11 @@ function Test-4IoTUsersFormattingBusinessNumberUSA1 {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","businessPhones"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $invalidPhones = @()
 
         $expectedPattern = '^\(\d{3}\)\s\d{3}-\d{4}\sx\d+$'

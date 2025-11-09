@@ -1,7 +1,11 @@
 function Test-4IoTUsersFormattingStateAbbreviation {
     $result = $true
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","state"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $incorrectStates = @()
 
         foreach ($user in $users) {

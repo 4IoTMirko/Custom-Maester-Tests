@@ -4,7 +4,11 @@ function Test-4IoTUsersFormattingPostalCodeCanada {
 
     try {
         # Retrieve all Member-type users
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","postalCode"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
 
         # Prepare an array to hold users who do NOT have a valid Canadian postal code format
         $usersWithoutValidPostalCode = @()

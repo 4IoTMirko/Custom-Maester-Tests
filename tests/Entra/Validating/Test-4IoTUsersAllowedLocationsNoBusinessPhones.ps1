@@ -14,7 +14,11 @@ function Test-4IoTUsersAllowedLocationsNoBusinessPhones {
         $fieldsToSelect = "displayName," + ($locationFields -join ",")
         
         # Retrieve all member users from Graph with the required fields
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select $fieldsToSelect
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $invalidUsers = @()
         
         foreach ($user in $users) {

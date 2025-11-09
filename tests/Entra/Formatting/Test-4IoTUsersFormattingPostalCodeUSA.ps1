@@ -3,7 +3,11 @@ function Test-4IoTUsersFormattingPostalCodeUSA {
 
     try {
         # Retrieve all Member-type users
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","postalCode"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
 
         # Prepare an array to hold users who do NOT have a valid US ZIP/ZIP+4 format
         $usersWithoutValidPostalCode = @()

@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingCountry {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","country"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutCountry = @()
 
         foreach ($user in $users) {

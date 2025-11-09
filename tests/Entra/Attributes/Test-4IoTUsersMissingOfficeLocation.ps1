@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingOfficeLocation {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","officeLocation"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutOfficeLocation = @()
 
         foreach ($user in $users) {

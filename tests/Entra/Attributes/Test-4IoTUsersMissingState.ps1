@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingState {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","state"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutState = @()
 
         foreach ($user in $users) {

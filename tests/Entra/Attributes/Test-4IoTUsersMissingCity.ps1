@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingCity {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","city"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutCity = @()
 
         foreach ($user in $users) {

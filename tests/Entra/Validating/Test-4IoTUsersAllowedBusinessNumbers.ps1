@@ -12,7 +12,11 @@ function Test-4IoTUsersAllowedBusinessNumbers {
         $validNumbers = $validation.validLocations.businessPhones
 
         # Retrieve all member users from Graph, selecting businessPhones
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","businessPhones"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $invalidUsers = @()
 
         foreach ($user in $users) {

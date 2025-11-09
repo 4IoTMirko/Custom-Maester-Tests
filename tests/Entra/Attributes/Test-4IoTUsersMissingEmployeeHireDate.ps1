@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingEmployeeHireDate {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","employeeHireDate"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutHireDate = @()
 
         foreach ($user in $users) {

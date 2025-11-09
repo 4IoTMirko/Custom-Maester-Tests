@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingFaxNumber {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","faxNumber"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutFaxNumber = @()
 
         foreach ($user in $users) {

@@ -12,7 +12,11 @@ function Test-4IoTUsersAllowedCities {
         $validCities = $validation.validLocations.city
 
         # Retrieve all member users from Graph
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","city"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $invalidUsers = @()
 
         foreach ($user in $users) {

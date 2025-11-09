@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingStreetAddress {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","streetAddress" 
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutStreetAddress = @()
 
         foreach ($user in $users) {

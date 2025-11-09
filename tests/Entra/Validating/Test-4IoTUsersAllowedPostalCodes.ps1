@@ -12,7 +12,11 @@ function Test-4IoTUsersAllowedPostalCodes {
         $validZipCodes = $validation.validLocations.zipCode
 
         # Retrieve all member users from Graph
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","postalCode"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersNotInList = @()
 
         foreach ($user in $users) {

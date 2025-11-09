@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingEmployeeID {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","employeeId"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutEmployeeID = @()
 
         foreach ($user in $users) {

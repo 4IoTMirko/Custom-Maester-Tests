@@ -12,7 +12,11 @@ function Test-4IoTUsersAllowedStates {
         $validStates = $validation.validLocations.state
 
         # Retrieve all member users from Graph
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","state"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersNotInList = @()
 
         foreach ($user in $users) {

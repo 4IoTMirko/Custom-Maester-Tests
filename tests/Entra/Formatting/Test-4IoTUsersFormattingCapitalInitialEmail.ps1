@@ -1,7 +1,11 @@
 function Test-4IoTUsersFormattingCapitalInitialEmail {
     $result = $true
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","givenName","surname","mail"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $incorrectEmailUsers = @()
 
         foreach ($user in $users) {

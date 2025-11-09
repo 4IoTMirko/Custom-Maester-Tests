@@ -13,7 +13,11 @@ function Test-4IoTUsersAllowedStreetAddresses {
         $validAddresses = $validation.validLocations.streetAddress
 
         # Retrieve all member users from Graph
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'" -Select "displayName","streetAddress"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $invalidUsers = @()
 
         foreach ($user in $users) {

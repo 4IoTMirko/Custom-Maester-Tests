@@ -33,7 +33,11 @@ function Test-4IoTUsersMissingManagers {
 
 	try {
 	   # Retrieve all users from Microsoft Graph
-	   $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'"
+	   $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
 
 	   # Initialize an array to track users without a manager
 	   $usersWithoutManager = @()

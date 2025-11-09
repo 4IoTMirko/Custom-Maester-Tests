@@ -2,7 +2,11 @@ function Test-4IoTUsersMissingMobilePhone {
     $result = $true
 
     try {
-        $users = Invoke-MtGraphRequest -RelativeUri "users" -Filter "userType eq 'Member'"
+        $Users = @()
+        $Groups = $validation.groupsInScope
+        foreach ($Group in $Groups) {
+            $users += Get-MtGroupMember -GroupId $group.id
+        }
         $usersWithoutMobilePhone = @()
 
         foreach ($user in $users) {
