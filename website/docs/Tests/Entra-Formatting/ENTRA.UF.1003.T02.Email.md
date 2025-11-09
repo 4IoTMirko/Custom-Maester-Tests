@@ -6,7 +6,7 @@ description: Ensures all users emails are in the correct lower case initial plus
 
 ## Description
 
-All user emails must have a lower case first initial plus lower case surname. Contoso’s policy requires a consistent email format for branding.
+All user emails must have a lower case first initial plus lower case surname. 4IoT’s policy requires a consistent email format for branding.
 
 ## How to fix
 
@@ -15,7 +15,7 @@ Confirm with HR the correct email format for the user.
 Then run:
 
 ```powershell
-Update-MgUser -UserID testuser@contoso.com -Mail "jsmith@contoso.com"
+Update-MgUser -UserID testuser@4IoT.com -Mail "jsmith@4IoT.com"
 ```
 
 ## Related links

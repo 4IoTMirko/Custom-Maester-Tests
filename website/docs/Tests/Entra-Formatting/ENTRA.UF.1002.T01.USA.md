@@ -15,7 +15,7 @@ Confirm with HR the correct business phone number format for the user.
 Then run:
 
 ```powershell
-Update-MgUser -UserID testuser@contoso.com -BusinessPhones @("(123) 456-7890 x123")
+Update-MgUser -UserID testuser@4IoT.com -BusinessPhones @("(123) 456-7890 x123")
 ```
 
 ## Related links

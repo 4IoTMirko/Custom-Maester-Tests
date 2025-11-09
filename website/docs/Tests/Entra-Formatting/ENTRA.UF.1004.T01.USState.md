@@ -15,7 +15,7 @@ Confirm with HR the correct email format for the user.
 Then run:
 
 ```powershell
-Update-MgUser -UserId user@contoso.com -State "NY"
+Update-MgUser -UserId user@4IoT.com -State "NY"
 ```
 
 ## Related links

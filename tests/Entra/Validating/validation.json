@@ -1,19 +1,22 @@
 {
   "validTitles": [
     {
-      "title": "CEO"
+      "title": "Geschäftsführer"
     },
     {
-      "title": "IT Manager"
+      "title": "Senior Consultant IT Infrastructure"
     },
     {
-      "title": "CFO"
+      "title": "Senior Consultant SAP"
     },
     {
-      "title": "HR Manager"
+      "title": "Assistenz der Geschäftsführung"
     },
     {
-      "title": "Administrator"
+      "title": "Intern"
+    },
+    {
+      "title": "Marketing Specialist"
     }
   ],
   "validDepartments": [
@@ -32,40 +35,19 @@
   ],
   "validLocations": [
     {
-      "streetAddress": "123 Yes Street",
-      "city": "New York",
-      "state": "NY",
-      "zipCode": "12345",
-      "country": "USA",
-      "businessPhones": "123-456-7890",
-      "companyName": "Testing Company"
-    },
+      "streetAddress": "Heinrich-von-Stephan-Straße 15",
+      "city": "Freiburg i.Br.",
+      "state": "BW",
+      "zipCode": "79108",
+      "country": "Deutschland",
+      "businessPhones": "+49 761",
+      "companyName": "4IoT GmbH"
+    }
+  ],
+  "groupsInScope": [
     {
-      "streetAddress": "456 Elm St",
-      "city": "Hartford",
-      "state": "CT",
-      "zipCode": "54321",
-      "country": "USA",
-      "businessPhones": "321-654-0987",
-      "companyName": "Another Company"
-    },
-    {
-      "streetAddress": "88 Jefferson Road",
-      "city": "Miami",
-      "state": "MA",
-      "zipCode": "32543",
-      "country": "USA",
-      "businessPhones": "987-654-3210",
-      "companyName": "Yet Another Company"
-    },
-    {
-      "streetAddress": "62 Top Street",
-      "city": "Los Angeles",
-      "state": "CA",
-      "zipCode": "85431",
-      "country": "USA",
-      "businessPhones": "456-789-0123",
-      "companyName": "Last Company"
+      "name": "4IoT Users",
+      "id": "31ea8c0f-ea08-435f-8183-b305787f8ee6"
     }
   ]
 }

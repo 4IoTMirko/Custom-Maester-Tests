@@ -6,7 +6,7 @@ description: Ensures all user emails should be in firstname.lastname format with
 
 ## Description
 
-All user emails must be in firstname.lastname format with all lowercase. Contoso’s policy requires a consistent email format for branding.
+All user emails must be in firstname.lastname format with all lowercase. 4IoT’s policy requires a consistent email format for branding.
 
 ## How to fix
 
@@ -15,7 +15,7 @@ Confirm with HR the correct email format for the user.
 Then run:
 
 ```powershell
-Update-MgUser -UserID testuser@contoso.com -Mail "jack.smith@contoso.com"
+Update-MgUser -UserID testuser@4IoT.com -Mail "jack.smith@4IoT.com"
 ```
 
 ## Related links

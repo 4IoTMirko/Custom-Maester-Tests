@@ -7,15 +7,15 @@ sidebar_position: 1
 
 Create a new file in the `Custom` folder with the `.Tests.ps1` suffix.
 
-#### Test-ContosoUsersMissingManagers.Tests.ps1
+#### Test-4IoTUsersMissingManagers.Tests.ps1
 
 ```powershell
 BeforeAll {
-.$PSScriptRoot/Test-ContosoUsersMissingManagers.ps1
+.$PSScriptRoot/Test-4IoTUsersMissingManagers.ps1
 }
-Describe "Contoso" -Tag "ENTRA.UA.1001", "Entra", "CustomTests", "Users" {
+Describe "4IoT" -Tag "ENTRA.UA.1001", "Entra", "CustomTests", "Users" {
     It "ENTRA.UA.1001: Manager Attribute - All users should have a manager attribute set" {
-	$result = Test-ContosoUsersMissingManagers
+	$result = Test-4IoTUsersMissingManagers
 	$result| Should -Be $true-Because "All users should have a manager assigned."
     }
 }
@@ -25,10 +25,10 @@ Describe "Contoso" -Tag "ENTRA.UA.1001", "Entra", "CustomTests", "Users" {
 
 Create the test file in the `Custom` folder that was referred to in the `BeforeAll` block in the previous step.
 
-#### Test-ContosoUsersMissingManagers.ps1
+#### Test-4IoTUsersMissingManagers.ps1
 
 ```powershell
-function Test-ContosoUsersMissingManagers {
+function Test-4IoTUsersMissingManagers {
 	$result = $true
 
 	try {
@@ -73,23 +73,23 @@ function Test-ContosoUsersMissingManagers {
 
 Create a markdown file in the `Custom` folder **with the same name as the test file** but with the `.md` extension.
 
-#### Test-ContosoUsersMissingManagers.md
+#### Test-4IoTUsersMissingManagers.md
 
 ```md
 This test checks if there are any users without a manager assigned.
 
-Contoso's company policy requires that all users have a manager assigned to them. This is important for accountability and delegation of responsibilities.
+4IoT's company policy requires that all users have a manager assigned to them. This is important for accountability and delegation of responsibilities.
 
 **To remediate this issue:**
 
 - Identify the users without a manager.
-- Raise a ticket in Service Now using [Form: Manager Missing - HR Ticket](https://contoso.service-now.com/managermissing) to request the manager assignment for the users identified in this test.
+- Raise a ticket in Service Now using [Form: Manager Missing - HR Ticket](https://4IoT.service-now.com/managermissing) to request the manager assignment for the users identified in this test.
 - 🔺 If this is not actioned in three days, escalate to the HR manager.
 
 **Learn more:**
 
--[Manager Missing - HR Ticket](https://contoso.service-now.com/managermissing)
--[HR Escalation Process](https://contoso.service-now.com/hrescalation)
+-[Manager Missing - HR Ticket](https://4IoT.service-now.com/managermissing)
+-[HR Escalation Process](https://4IoT.service-now.com/hrescalation)
 
 <!--- Results --->
 
@@ -103,4 +103,4 @@ Now when you run your custom tests folder this test should show
 
 ### Step 5: Customize to your company
 
-For all 3 files, run the Find and replace for "Contoso" with your company name.
+For all 3 files, run the Find and replace for "4IoT" with your company name.

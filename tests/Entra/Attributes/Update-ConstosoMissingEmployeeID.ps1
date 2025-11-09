@@ -1,5 +1,5 @@
 
-function Update-ContosoUserMissingEmployeeID {
+function Update-4IoTUserMissingEmployeeID {
     [CmdletBinding(SupportsShouldProcess=$true)]
     param(
         [Parameter(Mandatory)]

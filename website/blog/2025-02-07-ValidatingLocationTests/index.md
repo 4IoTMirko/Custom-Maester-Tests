@@ -9,21 +9,21 @@ Added 3 new tests which I think the first two will be game changers. The first 2
 
 ENTRA.UV.1010.L01 - All location information
 
-* Test-ContosoUsersAllowedLocations.ps1
-* Test-ContosoUsersAllowedLocations.Tests.ps1
-* Test-ContosoUsersAllowedLocations.md
+* Test-4IoTUsersAllowedLocations.ps1
+* Test-4IoTUsersAllowedLocations.Tests.ps1
+* Test-4IoTUsersAllowedLocations.md
 
 ENTRA.UV.1010.L02 - All location information minus business phone
 
-* Test-ContosoUsersAllowedLocationsNoBusinessPhones.ps1
-* Test-ContosoUsersAllowedLocationsNoBusinessPhones.Tests.ps1
-* Test-ContosoUsersAllowedLocationsNoBusinessPhones.md
+* Test-4IoTUsersAllowedLocationsNoBusinessPhones.ps1
+* Test-4IoTUsersAllowedLocationsNoBusinessPhones.Tests.ps1
+* Test-4IoTUsersAllowedLocationsNoBusinessPhones.md
 
 ENTRA.UF.1003.T03.Email - All lower case first name period last name
 
-* Test-ContosoUsersFormattingFirstLastLowerCase.ps1
-* Test-ContosoUsersFormattingFirstLastLowerCase.Tests.ps1
-* Test-ContosoUsersFormattingFirstLastLowerCase.md
+* Test-4IoTUsersFormattingFirstLastLowerCase.ps1
+* Test-4IoTUsersFormattingFirstLastLowerCase.Tests.ps1
+* Test-4IoTUsersFormattingFirstLastLowerCase.md
 
 Are there any other tests you'd like to see sooner than later?
 

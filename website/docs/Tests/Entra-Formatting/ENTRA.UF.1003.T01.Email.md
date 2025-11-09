@@ -15,9 +15,9 @@ Confirm with HR the correct email format for the user.
 Then run:
 
 ```powershell
-Update-MgUser -UserID testuser@contoso.com -Mail "JSmith@contoso.com"
+Update-MgUser -UserID testuser@4IoT.com -Mail "JSmith@4IoT.com"
 ```
 
 ### Related links
 
-- [Contoso Email Format Requirements](https://contoso.service-now.com/emailformat)
+- [4IoT Email Format Requirements](https://4IoT.service-now.com/emailformat)
