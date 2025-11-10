@@ -15,7 +15,7 @@ function Test-4IoTUsersAllowedBusinessNumbers {
         $Users = @()
         $Groups = $validation.groupsInScope
         foreach ($Group in $Groups) {
-            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
+            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select id,displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
         }
         $invalidUsers = @()
 
@@ -27,7 +27,7 @@ function Test-4IoTUsersAllowedBusinessNumbers {
 
             # Check if the user’s business number is missing OR not in the list of valid business numbers
             $phone = $user.businessPhones[0]
-            if ($null -eq $phone -or -not ($validNumbers -contains $phone)) {
+            if ($null -eq $phone -or -not ($validNumbers -contains $phone.substring(0,12))) {
                 $result = $false
                 $invalidUsers += $user
             }

@@ -1,6 +1,6 @@
-This test checks if there are any users missing or using an invalid US ZIP code.
+This test checks if there are any users missing or using an invalid ZIP code.
 
-4IoT's company policy requires that all users have a valid US postal code. Accuracy in postal data is critical for operations and compliance.
+4IoT's company policy requires that all users have a valid postal code. Accuracy in postal data is critical for operations and compliance.
 
 **To remediate this issue:**
 

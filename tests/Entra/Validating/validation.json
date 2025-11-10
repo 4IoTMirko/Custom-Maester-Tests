@@ -16,7 +16,7 @@
       "title": "Intern"
     },
     {
-      "title": "Marketing Specialist"
+      "title": "Marketing Professional"
     }
   ],
   "validDepartments": [
@@ -36,11 +36,11 @@
   "validLocations": [
     {
       "streetAddress": "Heinrich-von-Stephan-Straße 15",
-      "city": "Freiburg i.Br.",
+      "city": "Freiburg i. Br.",
       "state": "BW",
-      "zipCode": "79108",
+      "postalCode": "79108",
       "country": "Deutschland",
-      "businessPhones": "+49 761",
+      "businessPhones": "+49761216389",
       "companyName": "4IoT GmbH"
     }
   ],

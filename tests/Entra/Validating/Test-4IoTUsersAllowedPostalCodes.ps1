@@ -9,13 +9,13 @@ function Test-4IoTUsersAllowedPostalCodes {
         
         # Load valid zip codes from validation.json
         $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json
-        $validZipCodes = $validation.validLocations.zipCode
+        $validZipCodes = $validation.validLocations.postalCode
 
         # Retrieve all member users from Graph
         $Users = @()
         $Groups = $validation.groupsInScope
         foreach ($Group in $Groups) {
-            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
+            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select id,displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
         }
         $usersNotInList = @()
 
