@@ -1,7 +1,7 @@
 
 function Test-4IoTUsersAllowedStreetAddresses {
     param(
-        [string] $ValidatingPath = ("$PSScriptRoot/validation.json")
+        [string] $ValidatingPath = ("$PSScriptRoot/../validation.json")
     )
     $result = $true
     try {

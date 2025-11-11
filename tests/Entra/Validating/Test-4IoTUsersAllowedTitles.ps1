@@ -1,6 +1,6 @@
 function Test-4IoTUsersAllowedTitles {
     param(
-        [string] $ValidatingPath = ("$PSScriptRoot/validation.json")
+        [string] $ValidatingPath = ("$PSScriptRoot/../validation.json")
     )
     $result = $true
     try {

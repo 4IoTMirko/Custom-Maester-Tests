@@ -3,7 +3,7 @@
 
 function Test-4IoTUsersFormattingLowerCaseInitialEmail {
     param(
-        [string] $ValidatingPath = ("$PSScriptRoot/validation.json")
+        [string] $ValidatingPath = ("$PSScriptRoot/../validation.json")
     )
     $validation = Get-Content -Path $ValidatingPath -Raw | ConvertFrom-Json -Depth 10
     $result = $true
