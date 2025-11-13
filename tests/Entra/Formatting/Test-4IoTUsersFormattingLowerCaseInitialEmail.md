@@ -1,4 +1,4 @@
-This test checks if user email addresses follow the policy of using a lowercase first initial plus last name (e.g., jsmith).
+This test checks if user email addresses follow the policy of using given name and surname, both with capital initial separated by a dot.
 
 4IoT's company policy requires that all users have a valid email format assigned. This is important for consistent branding and correspondence.
 

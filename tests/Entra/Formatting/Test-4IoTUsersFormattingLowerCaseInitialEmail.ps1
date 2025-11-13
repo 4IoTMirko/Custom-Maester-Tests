@@ -11,7 +11,7 @@ function Test-4IoTUsersFormattingLowerCaseInitialEmail {
         $Users = @()
         $Groups = $validation.groupsInScope
         foreach ($Group in $Groups) {
-            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select id,displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
+            $users += Get-MtGroupMember -GroupId $group.id | %{Invoke-MtGraphRequest -RelativeUri "users" -Filter "id eq '$($_.id)'" -Select id,givenname,surname,displayName,jobTitle,companyName,postalCode,streetaddress,state,city,country,businessPhones,department,officeLocation,mobilePhone,employeeHireDate,employeeID,sponsors,mail,othermails,proxyaddresses}
         }
         $incorrectEmailUsers = @()
 
@@ -21,7 +21,7 @@ function Test-4IoTUsersFormattingLowerCaseInitialEmail {
                 $incorrectEmailUsers += $user
                 continue
             }
-            $expectedLocalPart = ($user.givenName.Substring(0,1) + $user.surname).ToLower()
+            $expectedLocalPart = ($user.givenName).Substring(0,1).ToUpper() + ($user.givenName).Substring(1).ToLower()  + '.' + ($user.surname).Substring(0,1).ToUpper() + ($user.surname).Substring(1).ToLower() 
             $actualLocalPart = ($user.mail -split "@")[0]
 
             if ($actualLocalPart -cne $expectedLocalPart) {
