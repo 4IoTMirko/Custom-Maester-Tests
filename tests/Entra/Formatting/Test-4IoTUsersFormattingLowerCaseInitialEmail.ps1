@@ -21,7 +21,7 @@ function Test-4IoTUsersFormattingLowerCaseInitialEmail {
                 $incorrectEmailUsers += $user
                 continue
             }
-            $expectedLocalPart = ($user.givenName).Substring(0,1).ToUpper() + ($user.givenName).Substring(1).ToLower()  + '.' + ($user.surname).Substring(0,1).ToUpper() + ($user.surname).Substring(1).ToLower() 
+            $expectedLocalPart = $(($user.givenName).Substring(0,1).ToUpper() + ($user.givenName).Substring(1).ToLower()  + '.' + ($user.surname).Substring(0,1).ToUpper() + ($user.surname).Substring(1).ToLower() ) -replace 'ä', 'ae' -replace 'ö', 'oe' -replace 'ü', 'ue' -replace 'Ä', 'Ae' -replace 'Ö', 'Oe' -replace 'Ü', 'Ue' -replace 'ß', 'ss'
             $actualLocalPart = ($user.mail -split "@")[0]
 
             if ($actualLocalPart -cne $expectedLocalPart) {
